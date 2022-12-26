@@ -1,5 +1,14 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+
+const data =require('./data');
+
+mongoose.connect('mongodb+srv://moon:4G2H6NinuD8D9Imh@cluster0.dwotniw.mongodb.net/?retryWrites=true&w=majority',
+{ useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 
 // permert d'intercepter des informations au format json depuis une requete POST
@@ -36,30 +45,12 @@ app.use((req, res, next) => {
     console.log(req.body);
     res.status(201).json({message:'objet crée !'});
 
-
+   
   });
-  
+
 
 app.get('/api/stuff',(req,res,next)=>{
-    const stuff =[
-        {
-            _id:'aze',
-            title:'First Object',
-            description:'les informations de mon premier objet',
-            imageUrl : 'https://www.ericfavre.com/lifestyle/wp-content/uploads/2020/06/barres-halteres.jpg',
-            price: 4500,
-            userId: 'Moon'
-        },
-        {
-            _id:'zer',
-            title:'Second Object',
-            description:'les informations de mon second objet',
-            imageUrl : 'https://www.cdiscount.com/pdt2/4/9/0/1/700x700/son6955880321490/rw/songmics-set-de-2-halteres-courts-avec-disques-en.jpg',
-            price: 900,
-            userId: 'Moon'
-        },
-
-    ];
+const stuff = data;
     res.status(200).json(stuff);
 });
 
