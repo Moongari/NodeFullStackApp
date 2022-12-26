@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const data =require('./data');
 const Thing = require('./models/things');
 
-mongoose.connect('mongodb+srv://moon:4G2H6NinuD8D9Imh@cluster0.dwotniw.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://moon:passwordh@cluster0.dwotniw.mongodb.net/?retryWrites=true&w=majority',
 { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
