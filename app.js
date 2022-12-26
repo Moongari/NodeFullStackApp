@@ -31,7 +31,16 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/api/stuff',(req,res,next)=>{
+  app.post('/api/stuff',(req,res,next)=>{
+
+    console.log(req.body);
+    res.status(201).json({message:'objet crée !'});
+
+
+  });
+  
+
+app.get('/api/stuff',(req,res,next)=>{
     const stuff =[
         {
             _id:'aze',
